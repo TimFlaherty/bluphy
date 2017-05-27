@@ -56,12 +56,15 @@
 </head>
 
 <body>
-<button type="button" onclick="locdev();">Show Local Devices</button>
-<br>
-<button type="button" onclick="scan();">Scan Devices</button>
+<b>1:</b><br>
+<button type="button" onclick="locdev();">Initialize Local Bluetooth</button>
 <br>
 <br>
 <div id="locdev"></div>
+<br>
+<br>
+<b>2:</b><br>
+<button type="button" onclick="scan();">Scan Devices</button>
 <br>
 <br>
 <div id="scan"></div>

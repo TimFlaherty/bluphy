@@ -23,7 +23,8 @@ TO DO:
 
 1 IN PROGRESS Implement PHP device scan/select
 
-	- Finish attached dev selection
+	- Display active selections back to user
+	- Implement "Clear Selection" buttons
 
 2 Implement PHP->Python tx/rx
 

@@ -7,7 +7,13 @@
 	array_pop($outparts);
 	$locdev = $outparts;
 	if(empty($locdev)){
-		echo "No devices found. Please make sure your Bluetooth is set to 'discoverable'.";
+		echo "No devices found. Please make sure your Bluetooth is connected to the server.";
+	} else if (count($locdev) == 1) {
+		$locmac = ltrim(substr($locdev[0], -18));
+		$locname = substr($locdev[0], 0, -18);
+		$insrtlocdev = "UPDATE active SET tx = '".$locmac."' WHERE id = 0";
+		$conn->query($insrtlocdev);
+		echo "<table><tr><th colspan='2'>Local Device Info</th></tr><tr><td>".$locname."</td><td>".$locmac."</td></tr></table>";
 	} else {
 		echo "<table><tr><th colspan='2'>Local Devices</th></tr>";
 		

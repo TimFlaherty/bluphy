@@ -5,6 +5,8 @@
 	$slctn = $conn->query($slct);
 	if ($slctn->num_rows > 0) {
     	while($row = $slctn->fetch_assoc()) {
+    		$macinsrt = "UPDATE active SET rx = '".$row["mac"]."' WHERE id = 0";
+    		$conn->query($macinsrt);
 			echo $row["mac"];
     	}
 	}
