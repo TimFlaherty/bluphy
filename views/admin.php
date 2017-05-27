@@ -39,6 +39,19 @@
 		xmlhttp.open("GET", "../controllers/select.php?y=" + selection, true);
 		xmlhttp.send();
 	}
+	
+	function rst() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("locdev").innerHTML = this.responseText;
+				document.getElementById("scan").innerHTML = this.responseText;
+				window.alert("Session has been reset");
+			}
+		};
+		xmlhttp.open("GET", "../controllers/reset.php", true);
+		xmlhttp.send();
+	}
 	</script>
 </head>
 
@@ -54,11 +67,7 @@
 <div id="scan"></div>
 <br>
 <br>
-<?php
-include('../models/db.php');
-echo "wut";
-print_r($dev);
-print_r($locdev);
-?>
+<br>
+<button type="button" onclick="rst();">Reset Session</button>
 </body>
 </html>

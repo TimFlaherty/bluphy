@@ -12,7 +12,11 @@
 		echo "<table><tr><th colspan='2'>Select Device</th></tr>";
 		
 		for($x = 0; $x < count($dev); $x++) {
-			echo "<tr><td><input type='radio' name='device' value=".$x."></td><td>".substr($dev[$x], 18).("</td></tr>");
+			$devname = substr($dev[$x], 18);
+			$mac = ltrim(mb_strimwidth($dev[$x], 0, 18, ""));
+			$insertdev = "INSERT INTO dev(id, dev, mac) VALUES (".$x.", '".$devname."', '".$mac."')";
+			$conn->query($insertdev);
+			echo "<tr><td><input type='radio' name='device' value=".$x."></td><td>".$devname.("</td></tr>");
 		}
 		
 		echo "<tr><th colspan='2'><button type='button' onclick='select();'>Use This Device</button></th></tr></table>";

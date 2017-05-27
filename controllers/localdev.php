@@ -1,6 +1,6 @@
 <?php
 	include('../models/db.php');
-	global $locdev;
+	
 	$output = shell_exec('hcitool dev');
 	$outparts = explode(PHP_EOL, $output);
 	array_shift($outparts);

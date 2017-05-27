@@ -19,7 +19,8 @@ DEPENDENCIES/SYSREQ:
 -Python 3
 
 TO DO:
-0 Implement database
-1 Implement PHP device scan/select
+0 DONE Implement database
+1 IN PROGRESS Implement PHP device scan/select
+	- Add attached dev selection
 2 Implement PHP->Python tx/rx
 3 Build out UI

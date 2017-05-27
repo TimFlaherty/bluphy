@@ -1,6 +1,11 @@
 <?php
 	include('../models/db.php');
 	$y = $_REQUEST["y"];
-	echo $dev[$y];
-	echo mb_strimwidth($dev[$y], 0, 18, "");	
+	$slct = "SELECT * FROM dev WHERE id = ".$y."";
+	$slctn = $conn->query($slct);
+	if ($slctn->num_rows > 0) {
+    	while($row = $slctn->fetch_assoc()) {
+			echo $row["mac"];
+    	}
+	}
 ?>
