@@ -4,12 +4,25 @@
 	<title>bluphy admin</title>
 	<link rel="stylesheet" type="text/css" href="admin.css">
 	<script>
+	function active() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("active").innerHTML = this.responseText;
+			}
+		};
+		xmlhttp.open("GET", "../views/active.php", true);
+		xmlhttp.send();
+	}
+	
 	function locdev() {
 		document.getElementById("locdev").innerHTML = "One moment please...<br>";
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("locdev").innerHTML = this.responseText;
+				active();
+				document.getElementById("scanbtn").disabled = false;
 			}
 		};
 		xmlhttp.open("GET", "../controllers/localdev.php", true);
@@ -33,7 +46,7 @@
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				window.alert(this.responseText);
+				active();
 			}
 		};
 		xmlhttp.open("GET", "../controllers/select.php?y=" + selection, true);
@@ -44,8 +57,10 @@
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
+				active();
 				document.getElementById("locdev").innerHTML = this.responseText;
 				document.getElementById("scan").innerHTML = this.responseText;
+				document.getElementById("scanbtn").disabled = true;
 				window.alert("Session has been reset");
 			}
 		};
@@ -56,6 +71,9 @@
 </head>
 
 <body>
+<script>active();</script>
+<div id="active"></div>
+<br>
 <b>1:</b><br>
 <button type="button" onclick="locdev();">Initialize Local Bluetooth</button>
 <br>
@@ -64,7 +82,7 @@
 <br>
 <br>
 <b>2:</b><br>
-<button type="button" onclick="scan();">Scan Devices</button>
+<button type="button" id="scanbtn" onclick="scan();" disabled>Scan Devices</button>
 <br>
 <br>
 <div id="scan"></div>

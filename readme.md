@@ -23,7 +23,7 @@ TO DO:
 
 1 IN PROGRESS Implement PHP device scan/select
 
-	- Display active selections back to user
+	- Add user input for port and message
 	- Implement "Clear Selection" buttons
 
 2 Implement PHP->Python tx/rx
