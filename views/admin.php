@@ -80,6 +80,18 @@
 		xmlhttp.send();
 	}
 	
+	function send() {
+		window.alert('js works');
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				window.alert(this.responseText);
+			}
+		};
+		xmlhttp.open("GET", "../controllers/send.php", true);
+		xmlhttp.send();
+	}
+	
 	function rst() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {

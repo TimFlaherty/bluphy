@@ -14,7 +14,7 @@
 		
 	$footer = "</tr>
 		<tr>
-			<th colspan='4'><input type='button' value='Send' disabled></th>
+			<th colspan='4'><input type='button' value='Send' onclick='send();'></th>
 		</tr>
 	</table>";
 	
