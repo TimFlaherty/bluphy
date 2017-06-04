@@ -25,6 +25,8 @@ TO DO:
 
 	- Implement "Clear Selection" buttons
 
-2 Implement PHP->Python tx/rx
+2 IN PROGRESS Implement PHP->Python tx/rx
+
+	- Buggy
 
 3 Build out UI
